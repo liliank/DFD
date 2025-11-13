@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <div class="mermaid">
+graph TB
+    %% User Layer
+    User[Doctor/Healthcare Professional]
+    NativeApp[Native Mobile App<br/>iOS/Android]
+
+    %% Presentation Layer
+    subgraph "Frontend Layer - React Framework7"
+        Login[Login Screen]
+        PatientList[Patient List Screen]
+        PatientDetail[Patient Detail Screen]
+        MedicationCheck[Medication Check Screen]
+        ChatList[Chat List Screen]
+        ChatPanel[Chat Panel Screen]
+
+        subgraph "React Components"
+            PatientInfo[Patient Info Component]
+            HistoryGraph[History Graph Component]
+            Medicine[Medicine Component]
+            Prescription[Prescription Component]
+            GoalSetting[Goal Setting Component]
+            ConditionOfPatient[Condition Component]
+            ChatPopup[Chat Popup Component]
+            Sync[Sync Component]
+        end
+    end
+
+    %% Service Layer
+    subgraph "Service Layer"
+        AuthGuard[AuthGuard Service<br/>Authentication Management]
+        API[API Service<br/>HTTP Client]
+        Network[Network Service<br/>Connection Monitoring]
+        Cache[Cache Service<br/>Local Data Store]
+        DataTransfer[DataTransfer Service<br/>State Management]
+        Native[Native Service<br/>Bridge to Mobile]
+    end
+
+    %% Backend Layer
+    subgraph "Backend API Layer"
+        AuthAPI[Authentication API]
+        PatientAPI[Patient Management API]
+        VitalsAPI[Vitals/BP API]
+        MedicationAPI[Medication/Drugs API]
+        ChatAPI[Chat/Messaging API]
+        BatchAPI[Batch Processing API]
+        GoalAPI[Goal Setting API]
+        ConditionsAPI[Conditions API]
+    end
+
+    %% Data Storage
+    subgraph "Data Storage"
+        Database[(Database<br/>Patient Records<br/>Vitals Data<br/>Medications)]
+    end
+
+    %% External Services
+    subgraph "External Services"
+        GoogleAnalytics[Google Analytics<br/>Tracking]
+        PusherService[Pusher Service<br/>Real-time Messaging<br/>WebSocket]
+        OmronDevices[Omron Medical Devices<br/>BP Monitors]
+    end
+
+    %% User Interactions
+    User -->|Accesses| NativeApp
+    User -->|Accesses| Login
+
+    %% Native App Communication
+    NativeApp <-->|Bridge Communication| Native
+
+    %% Screen Navigation Flow
+    Login -->|Successful Auth| PatientList
+    PatientList -->|Select Patient| PatientDetail
+    PatientList -->|View Messages| ChatList
+    PatientDetail -->|View/Edit| PatientInfo
+    PatientDetail -->|View History| HistoryGraph
+    PatientDetail -->|Manage Meds| Medicine
+    PatientDetail -->|Prescribe| Prescription
+    PatientDetail -->|Set Goals| GoalSetting
+    PatientDetail -->|View Conditions| ConditionOfPatient
+    ChatList -->|Open Chat| ChatPanel
+    PatientDetail -->|Sync Data| Sync
+
+    %% Component to Service Communication
+    Login --> AuthGuard
+    PatientList --> API
+    PatientDetail --> API
+    MedicationCheck --> API
+    ChatList --> API
+    ChatPanel --> API
+
+    %% All Components use these services
+    PatientInfo --> API
+    HistoryGraph --> API
+    Medicine --> API
+    Prescription --> API
+    GoalSetting --> API
+    ConditionOfPatient --> API
+    Sync --> API
+
+    %% Service Layer Communication
+    AuthGuard --> API
+    API --> Network
+    API -.->|Caches Data| Cache
+    Cache -.->|Retrieves Cache| API
+    DataTransfer -.->|Shares State| PatientList
+    DataTransfer -.->|Shares State| PatientDetail
+    Network -.->|Monitors Connection| API
+
+    %% API to Backend Communication
+    API -->|POST /login<br/>GET /logout<br/>GET /is-authenticated| AuthAPI
+    API -->|GET /doctor/patient_list<br/>GET /doctor/patient<br/>POST /doctor/patients<br/>GET /doctor/data| PatientAPI
+    API -->|GET /doctor/graph<br/>POST /doctor/office-bp<br/>GET /doctor/history-office<br/>GET /doctor/history-home| VitalsAPI
+    API -->|GET /doctor/drugs<br/>POST /doctor/drugs<br/>DELETE /doctor/drugs/{id}<br/>POST /doctor/drugs/refill<br/>POST /doctor/risk| MedicationAPI
+    API -->|POST /chat/user/userLogin<br/>GET /chat/user/getMessageList<br/>POST /chat/user/createMessage<br/>GET /chat/user/doctorDialogsList<br/>POST /chat/user/createDialog<br/>GET /chat/user/findNotificationList<br/>POST /chat/user/pushNotification| ChatAPI
+    API -->|GET /batch/execute/user/{id}| BatchAPI
+    API -->|GET /doctor/goal<br/>POST /doctor/goal| GoalAPI
+    API -->|GET /doctor/conditions<br/>POST /doctor/conditions| ConditionsAPI
+
+    %% Backend to Database
+    AuthAPI --> Database
+    PatientAPI --> Database
+    VitalsAPI --> Database
+    MedicationAPI --> Database
+    ChatAPI --> Database
+    BatchAPI --> Database
+    GoalAPI --> Database
+    ConditionsAPI --> Database
+
+    %% External Service Integration
+    PatientList -.->|Track Page Views| GoogleAnalytics
+    PatientDetail -.->|Track Interactions| GoogleAnalytics
+    Login -.->|Track Login Events| GoogleAnalytics
+
+    ChatAPI <-.->|Real-time Messages| PusherService
+    ChatPanel <-.->|WebSocket Events| PusherService
+
+    VitalsAPI <-.->|Device Data| OmronDevices
+    Sync -.->|Sync Measurements| OmronDevices
+
+    BatchAPI -.->|Batch Events<br/>BatchStarted<br/>BatchCompleted<br/>BatchFailed| PusherService
+
+    %% Styling
+    classDef userClass fill:#e1f5ff,stroke:#01579b,stroke-width:2px
+    classDef frontendClass fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    classDef serviceClass fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    classDef backendClass fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+    classDef storageClass fill:#fce4ec,stroke:#880e4f,stroke-width:2px
+    classDef externalClass fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+
+    class User,NativeApp userClass
+    class Login,PatientList,PatientDetail,MedicationCheck,ChatList,ChatPanel,PatientInfo,HistoryGraph,Medicine,Prescription,GoalSetting,ConditionOfPatient,ChatPopup,Sync frontendClass
+    class AuthGuard,API,Network,Cache,DataTransfer,Native serviceClass
+    class AuthAPI,PatientAPI,VitalsAPI,MedicationAPI,ChatAPI,BatchAPI,GoalAPI,ConditionsAPI backendClass
+    class Database storageClass
+    class GoogleAnalytics,PusherService,OmronDevices externalClass
+
+    </div>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+
+        // Wait for mermaid to render, then extract SVG
+        setTimeout(() => {
+            const svg = document.querySelector('svg');
+            if (svg) {
+                console.log(svg.outerHTML);
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
