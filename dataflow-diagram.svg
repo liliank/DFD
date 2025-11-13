@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 32px; font-weight: bold; fill: #333; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 20px; fill: #666; }
+      .body-text { font-family: Arial, sans-serif; font-size: 16px; fill: #444; }
+      .instruction { font-family: 'Courier New', monospace; font-size: 14px; fill: #0066cc; }
+      .box { fill: #f0f8ff; stroke: #0066cc; stroke-width: 2; rx: 10; }
+      .header-box { fill: #0066cc; }
+      .header-text { fill: white; font-family: Arial, sans-serif; font-size: 24px; font-weight: bold; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="white"/>
+
+  <!-- Header -->
+  <rect class="header-box" x="0" y="0" width="1200" height="80"/>
+  <text class="header-text" x="600" y="50" text-anchor="middle">Omron Doctor Dashboard - Dataflow Diagram</text>
+
+  <!-- Main Content Box -->
+  <rect class="box" x="50" y="120" width="1100" height="620"/>
+
+  <!-- Title -->
+  <text class="title" x="600" y="180" text-anchor="middle">Interactive SVG Generation Required</text>
+
+  <!-- Subtitle -->
+  <text class="subtitle" x="600" y="220" text-anchor="middle">This diagram requires Mermaid rendering. Use one of the methods below:</text>
+
+  <!-- Method 1 -->
+  <text class="body-text" x="100" y="280" font-weight="bold">🚀 QUICKEST METHOD (30 seconds):</text>
+  <text class="body-text" x="120" y="310">1. Visit: https://mermaid.live/</text>
+  <text class="body-text" x="120" y="335">2. Paste the contents of "dataflow.mmd" file</text>
+  <text class="body-text" x="120" y="360">3. Click Download → SVG</text>
+  <text class="instruction" x="120" y="385">   ✅ This produces the best quality SVG!</text>
+
+  <!-- Method 2 -->
+  <text class="body-text" x="100" y="430" font-weight="bold">📄 ALTERNATIVE METHOD:</text>
+  <text class="body-text" x="120" y="460">Open "dataflow-diagram.html" in your browser (Chrome/Firefox)</text>
+  <text class="body-text" x="120" y="485">Right-click → Inspect → Copy the &lt;svg&gt; element</text>
+
+  <!-- Method 3 -->
+  <text class="body-text" x="100" y="530" font-weight="bold">💻 COMMAND LINE (with Node.js):</text>
+  <text class="instruction" x="120" y="560">   npm install -g @mermaid-js/mermaid-cli</text>
+  <text class="instruction" x="120" y="585">   mmdc -i dataflow.mmd -o output.svg</text>
+
+  <!-- Files Info -->
+  <text class="body-text" x="100" y="630" font-weight="bold">📁 AVAILABLE FILES:</text>
+  <text class="body-text" x="120" y="655">• dataflow.mmd - Mermaid source code</text>
+  <text class="body-text" x="120" y="680">• dataflow-diagram.html - Interactive viewer</text>
+  <text class="body-text" x="120" y="705">• README_SVG.md - Complete SVG generation guide</text>
+
+  <!-- Footer -->
+  <text class="body-text" x="600" y="750" text-anchor="middle" font-size="14px" fill="#999">
+    The diagram contains 40+ components and 60+ connections across 6 architectural layers
+  </text>
+</svg>
