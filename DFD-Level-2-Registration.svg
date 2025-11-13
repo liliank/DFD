@@ -1,0 +1,252 @@
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <defs>
+    <style>
+      .title { font: bold 24px sans-serif; fill: #2c3e50; }
+      .subtitle { font: 16px sans-serif; fill: #34495e; }
+      .process { fill: #3498db; stroke: #2980b9; stroke-width: 2; }
+      .external { fill: #ecf0f1; stroke: #34495e; stroke-width: 2; }
+      .datastore { fill: none; stroke: #e67e22; stroke-width: 2; }
+      .text { font: 13px sans-serif; fill: #2c3e50; text-anchor: middle; }
+      .label { font: bold 13px sans-serif; fill: white; text-anchor: middle; }
+      .process-num { font: bold 11px sans-serif; fill: white; }
+      .flow-label { font: 10px sans-serif; fill: #34495e; }
+      .arrow { fill: none; stroke: #2c3e50; stroke-width: 2; marker-end: url(#arrowhead); }
+      .decision { fill: #e74c3c; stroke: #c0392b; stroke-width: 2; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#2c3e50" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="700" y="35" class="title">Level 2: User Registration Process (1.0) - Detailed View</text>
+  <text x="700" y="60" class="subtitle">Breaking down the User Registration process into sub-processes</text>
+
+  <!-- External Entities -->
+  <!-- User -->
+  <rect x="50" y="250" width="100" height="70" class="external"/>
+  <text x="100" y="290" class="text">User/Client</text>
+
+  <!-- Email System -->
+  <rect x="1250" y="250" width="100" height="70" class="external"/>
+  <text x="1300" y="290" class="text">Email System</text>
+
+  <!-- Data Stores -->
+  <!-- D1: User Accounts -->
+  <g transform="translate(600, 780)">
+    <path d="M 0 0 L 200 0" class="datastore"/>
+    <path d="M 0 30 L 200 30" class="datastore"/>
+    <path d="M 0 0 L 0 30" class="datastore"/>
+    <path d="M 200 0 L 200 30" class="datastore"/>
+    <text x="100" y="20" class="text">D1: User Accounts</text>
+  </g>
+
+  <!-- D5: Verification Tokens -->
+  <g transform="translate(900, 780)">
+    <path d="M 0 0 L 180 0" class="datastore"/>
+    <path d="M 0 30 L 180 30" class="datastore"/>
+    <path d="M 0 0 L 0 30" class="datastore"/>
+    <path d="M 180 0 L 180 30" class="datastore"/>
+    <text x="90" y="20" class="text">D5: Verification Tokens</text>
+  </g>
+
+  <!-- D3: Audit Log -->
+  <g transform="translate(300, 780)">
+    <path d="M 0 0 L 150 0" class="datastore"/>
+    <path d="M 0 30 L 150 30" class="datastore"/>
+    <path d="M 0 0 L 0 30" class="datastore"/>
+    <path d="M 150 0 L 150 30" class="datastore"/>
+    <text x="75" y="20" class="text">D3: Audit Log</text>
+  </g>
+
+  <!-- Sub-Processes -->
+  <!-- P1.1: Receive Registration Data -->
+  <circle cx="250" cy="180" r="55" class="process"/>
+  <text x="250" y="172" class="process-num">1.1</text>
+  <text x="250" y="188" class="label">Receive</text>
+  <text x="250" y="203" class="label">Registration</text>
+
+  <!-- P1.2: Validate Input -->
+  <circle cx="450" cy="180" r="55" class="process"/>
+  <text x="450" y="172" class="process-num">1.2</text>
+  <text x="450" y="188" class="label">Validate</text>
+  <text x="450" y="203" class="label">Input Data</text>
+
+  <!-- P1.3: Check Duplicates -->
+  <circle cx="650" cy="180" r="55" class="process"/>
+  <text x="650" y="172" class="process-num">1.3</text>
+  <text x="650" y="188" class="label">Check for</text>
+  <text x="650" y="203" class="label">Duplicates</text>
+
+  <!-- P1.4: Hash Password -->
+  <circle cx="450" cy="380" r="55" class="process"/>
+  <text x="450" y="372" class="process-num">1.4</text>
+  <text x="450" y="388" class="label">Hash</text>
+  <text x="450" y="403" class="label">Password</text>
+
+  <!-- P1.5: Create Account Record -->
+  <circle cx="650" cy="380" r="55" class="process"/>
+  <text x="650" y="372" class="process-num">1.5</text>
+  <text x="650" y="388" class="label">Create</text>
+  <text x="650" y="403" class="label">Account</text>
+
+  <!-- P1.6: Generate Verification Token -->
+  <circle cx="850" cy="380" r="55" class="process"/>
+  <text x="850" y="372" class="process-num">1.6</text>
+  <text x="850" y="388" class="label">Generate</text>
+  <text x="850" y="403" class="label">Token</text>
+
+  <!-- P1.7: Send Verification Email -->
+  <circle cx="1050" cy="280" r="55" class="process"/>
+  <text x="1050" y="272" class="process-num">1.7</text>
+  <text x="1050" y="288" class="label">Send</text>
+  <text x="1050" y="303" class="label">Email</text>
+
+  <!-- P1.8: Verify Email -->
+  <circle cx="850" cy="580" r="55" class="process"/>
+  <text x="850" y="572" class="process-num">1.8</text>
+  <text x="850" y="588" class="label">Verify</text>
+  <text x="850" y="603" class="label">Email</text>
+
+  <!-- P1.9: Activate Account -->
+  <circle cx="650" cy="580" r="55" class="process"/>
+  <text x="650" y="572" class="process-num">1.9</text>
+  <text x="650" y="588" class="label">Activate</text>
+  <text x="650" y="603" class="label">Account</text>
+
+  <!-- P1.10: Send Welcome Email -->
+  <circle cx="1050" cy="480" r="55" class="process"/>
+  <text x="1050" y="472" class="process-num">1.10</text>
+  <text x="1050" y="488" class="label">Send Welcome</text>
+  <text x="1050" y="503" class="label">Email</text>
+
+  <!-- P1.11: Log Registration Event -->
+  <circle cx="250" cy="580" r="55" class="process"/>
+  <text x="250" y="572" class="process-num">1.11</text>
+  <text x="250" y="588" class="label">Log</text>
+  <text x="250" y="603" class="label">Event</text>
+
+  <!-- Decision: Valid? -->
+  <polygon points="850,140 920,180 850,220 780,180" class="decision"/>
+  <text x="850" y="180" class="label" style="font-size: 11px;">Valid?</text>
+
+  <!-- Data Flows -->
+  <!-- User to P1.1 -->
+  <path d="M 150 270 L 205 210" class="arrow"/>
+  <text x="160" y="230" class="flow-label">Registration</text>
+  <text x="160" y="242" class="flow-label">Form Data</text>
+
+  <!-- P1.1 to P1.2 -->
+  <path d="M 305 180 L 395 180" class="arrow"/>
+  <text x="340" y="170" class="flow-label">Raw Input</text>
+
+  <!-- P1.2 to P1.3 -->
+  <path d="M 505 180 L 595 180" class="arrow"/>
+  <text x="540" y="170" class="flow-label">Validated Data</text>
+
+  <!-- P1.3 to D1 (Check) -->
+  <path d="M 670 235 L 685 780" class="arrow"/>
+  <text x="660" y="490" class="flow-label">Query Email</text>
+
+  <!-- P1.3 to Decision -->
+  <path d="M 705 175 L 780 175" class="arrow"/>
+  <text x="735" y="165" class="flow-label">Check Result</text>
+
+  <!-- Decision to P1.4 (Valid - Yes) -->
+  <path d="M 850 220 L 490 345" class="arrow"/>
+  <text x="640" y="280" class="flow-label">No Duplicate</text>
+
+  <!-- Decision to User (Invalid - No) -->
+  <path d="M 780 165 L 150 280" class="arrow"/>
+  <text x="420" y="210" class="flow-label">Error: Duplicate Email</text>
+
+  <!-- P1.4 to P1.5 -->
+  <path d="M 505 380 L 595 380" class="arrow"/>
+  <text x="540" y="370" class="flow-label">Hashed Password</text>
+
+  <!-- P1.5 to D1 (Insert) -->
+  <path d="M 665 435 L 690 780" class="arrow"/>
+  <text x="700" y="600" class="flow-label">Insert Record</text>
+  <text x="700" y="612" class="flow-label">(status: pending)</text>
+
+  <!-- P1.5 to P1.6 -->
+  <path d="M 705 380 L 795 380" class="arrow"/>
+  <text x="740" y="370" class="flow-label">User ID</text>
+
+  <!-- P1.6 to D5 -->
+  <path d="M 880 430 L 975 780" class="arrow"/>
+  <text x="910" y="600" class="flow-label">Store Token</text>
+
+  <!-- P1.6 to P1.7 -->
+  <path d="M 890 350 L 1015 305" class="arrow"/>
+  <text x="930" y="320" class="flow-label">Token + Email</text>
+
+  <!-- P1.7 to Email System -->
+  <path d="M 1105 275 L 1250 275" class="arrow"/>
+  <text x="1160" y="265" class="flow-label">Verification</text>
+  <text x="1160" y="277" class="flow-label">Link</text>
+
+  <!-- User to P1.8 -->
+  <path d="M 150 300 L 800 555" class="arrow"/>
+  <text x="420" y="420" class="flow-label">Click Verification Link</text>
+
+  <!-- P1.8 to D5 -->
+  <path d="M 880 630 L 980 780" class="arrow"/>
+  <text x="910" y="700" class="flow-label">Verify Token</text>
+
+  <!-- P1.8 to P1.9 -->
+  <path d="M 795 590 L 705 590" class="arrow"/>
+  <text x="740" y="580" class="flow-label">Valid Token</text>
+
+  <!-- P1.9 to D1 -->
+  <path d="M 670 635 L 695 780" class="arrow"/>
+  <text x="705" y="700" class="flow-label">Update Status</text>
+  <text x="705" y="712" class="flow-label">(active)</text>
+
+  <!-- P1.9 to P1.10 -->
+  <path d="M 705 575 L 1000 510" class="arrow"/>
+  <text x="820" y="540" class="flow-label">Account Activated</text>
+
+  <!-- P1.10 to Email System -->
+  <path d="M 1095 455 L 1250 295" class="arrow"/>
+  <text x="1160" y="370" class="flow-label">Welcome</text>
+  <text x="1160" y="382" class="flow-label">Message</text>
+
+  <!-- P1.9 to User -->
+  <path d="M 600 600 L 150 310" class="arrow"/>
+  <text x="330" y="450" class="flow-label">Success Response</text>
+
+  <!-- P1.5 to P1.11 -->
+  <path d="M 595 400 L 305 560" class="arrow"/>
+  <text x="420" y="480" class="flow-label">Registration Event</text>
+
+  <!-- P1.9 to P1.11 -->
+  <path d="M 595 590 L 305 590" class="arrow"/>
+  <text x="420" y="580" class="flow-label">Activation Event</text>
+
+  <!-- P1.11 to D3 -->
+  <path d="M 260 635 L 360 780" class="arrow"/>
+  <text x="290" y="700" class="flow-label">Write Log</text>
+
+  <!-- Process Box to indicate scope -->
+  <rect x="200" y="120" width="950" height="550" fill="none" stroke="#95a5a6" stroke-width="2" stroke-dasharray="10,5" rx="10"/>
+  <text x="210" y="145" style="font: bold 14px sans-serif; fill: #7f8c8d;">User Registration Process (1.0)</text>
+
+  <!-- Legend -->
+  <g transform="translate(50, 700)">
+    <text x="0" y="0" class="text" style="font-weight: bold; text-anchor: start;">Legend:</text>
+    <circle cx="12" cy="22" r="10" class="process"/>
+    <text x="30" y="27" class="text" style="text-anchor: start; font-size: 11px;">Process</text>
+
+    <polygon points="0,45 10,55 0,65 -10,55" class="decision"/>
+    <text x="15" y="58" class="text" style="text-anchor: start; font-size: 11px;">Decision Point</text>
+
+    <rect x="2" y="75" width="20" height="14" class="external"/>
+    <text x="30" y="85" class="text" style="text-anchor: start; font-size: 11px;">External Entity</text>
+
+    <path d="M 0 100 L 25 100 L 25 115 L 0 115 Z" class="datastore"/>
+    <text x="30" y="110" class="text" style="text-anchor: start; font-size: 11px;">Data Store</text>
+  </g>
+</svg>

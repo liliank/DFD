@@ -1,0 +1,235 @@
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1000" viewBox="0 0 1400 1000">
+  <defs>
+    <style>
+      .title { font: bold 24px sans-serif; fill: #2c3e50; }
+      .subtitle { font: 16px sans-serif; fill: #34495e; }
+      .process { fill: #3498db; stroke: #2980b9; stroke-width: 2; }
+      .external { fill: #ecf0f1; stroke: #34495e; stroke-width: 2; }
+      .datastore { fill: none; stroke: #e67e22; stroke-width: 2; }
+      .text { font: 13px sans-serif; fill: #2c3e50; text-anchor: middle; }
+      .label { font: bold 13px sans-serif; fill: white; text-anchor: middle; }
+      .process-num { font: bold 11px sans-serif; fill: white; }
+      .flow-label { font: 10px sans-serif; fill: #34495e; }
+      .arrow { fill: none; stroke: #2c3e50; stroke-width: 2; marker-end: url(#arrowhead); }
+      .decision { fill: #e74c3c; stroke: #c0392b; stroke-width: 2; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#2c3e50" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="700" y="35" class="title">Level 2: Authentication Process (2.0) - Detailed View</text>
+  <text x="700" y="60" class="subtitle">Breaking down the Authentication process into sub-processes</text>
+
+  <!-- External Entities -->
+  <!-- User -->
+  <rect x="50" y="300" width="100" height="70" class="external"/>
+  <text x="100" y="340" class="text">User/Client</text>
+
+  <!-- Auth Provider -->
+  <rect x="1250" y="300" width="100" height="70" class="external"/>
+  <text x="1300" y="330" class="text">Auth Provider</text>
+  <text x="1300" y="350" class="text">(OAuth/SSO)</text>
+
+  <!-- Data Stores -->
+  <!-- D1: User Accounts -->
+  <g transform="translate(600, 880)">
+    <path d="M 0 0 L 200 0" class="datastore"/>
+    <path d="M 0 30 L 200 30" class="datastore"/>
+    <path d="M 0 0 L 0 30" class="datastore"/>
+    <path d="M 200 0 L 200 30" class="datastore"/>
+    <text x="100" y="20" class="text">D1: User Accounts</text>
+  </g>
+
+  <!-- D2: Session Store -->
+  <g transform="translate(900, 880)">
+    <path d="M 0 0 L 150 0" class="datastore"/>
+    <path d="M 0 30 L 150 30" class="datastore"/>
+    <path d="M 0 0 L 0 30" class="datastore"/>
+    <path d="M 150 0 L 150 30" class="datastore"/>
+    <text x="75" y="20" class="text">D2: Sessions</text>
+  </g>
+
+  <!-- D4: Token Blacklist -->
+  <g transform="translate(300, 880)">
+    <path d="M 0 0 L 150 0" class="datastore"/>
+    <path d="M 0 30 L 150 30" class="datastore"/>
+    <path d="M 0 0 L 0 30" class="datastore"/>
+    <path d="M 150 0 L 150 30" class="datastore"/>
+    <text x="75" y="20" class="text">D4: Token Blacklist</text>
+  </g>
+
+  <!-- Sub-Processes -->
+  <!-- P2.1: Receive Credentials -->
+  <circle cx="250" cy="180" r="55" class="process"/>
+  <text x="250" y="172" class="process-num">2.1</text>
+  <text x="250" y="188" class="label">Receive &amp;</text>
+  <text x="250" y="203" class="label">Validate Input</text>
+
+  <!-- P2.2: Determine Auth Method -->
+  <polygon points="450,120 520,180 450,240 380,180" class="decision"/>
+  <text x="450" y="175" class="process-num">2.2</text>
+  <text x="450" y="190" class="label">Determine</text>
+  <text x="450" y="203" class="label">Auth Type</text>
+
+  <!-- P2.3: Validate Local Credentials -->
+  <circle cx="450" cy="400" r="55" class="process"/>
+  <text x="450" y="392" class="process-num">2.3</text>
+  <text x="450" y="408" class="label">Validate Local</text>
+  <text x="450" y="423" class="label">Credentials</text>
+
+  <!-- P2.4: Hash &amp; Compare -->
+  <circle cx="650" cy="400" r="55" class="process"/>
+  <text x="650" y="392" class="process-num">2.4</text>
+  <text x="650" y="408" class="label">Hash &amp;</text>
+  <text x="650" y="423" class="label">Compare</text>
+
+  <!-- P2.5: SSO Authentication -->
+  <circle cx="950" cy="180" r="55" class="process"/>
+  <text x="950" y="172" class="process-num">2.5</text>
+  <text x="950" y="188" class="label">SSO/OAuth</text>
+  <text x="950" y="203" class="label">Authentication</text>
+
+  <!-- P2.6: Verify Account Status -->
+  <circle cx="700" cy="600" r="55" class="process"/>
+  <text x="700" y="592" class="process-num">2.6</text>
+  <text x="700" y="608" class="label">Verify Account</text>
+  <text x="700" y="623" class="label">Status</text>
+
+  <!-- P2.7: Generate Token -->
+  <circle cx="950" cy="600" r="55" class="process"/>
+  <text x="950" y="592" class="process-num">2.7</text>
+  <text x="950" y="608" class="label">Generate</text>
+  <text x="950" y="623" class="label">Auth Token</text>
+
+  <!-- P2.8: Check Token Validity -->
+  <circle cx="250" cy="600" r="55" class="process"/>
+  <text x="250" y="592" class="process-num">2.8</text>
+  <text x="250" y="608" class="label">Validate</text>
+  <text x="250" y="623" class="label">Token</text>
+
+  <!-- P2.9: Refresh Token -->
+  <circle cx="450" cy="720" r="55" class="process"/>
+  <text x="450" y="712" class="process-num">2.9</text>
+  <text x="450" y="728" class="label">Refresh</text>
+  <text x="450" y="743" class="label">Token</text>
+
+  <!-- P2.10: Logout -->
+  <circle cx="950" cy="400" r="55" class="process"/>
+  <text x="950" y="392" class="process-num">2.10</text>
+  <text x="950" y="408" class="label">Logout &amp;</text>
+  <text x="950" y="423" class="label">Revoke</text>
+
+  <!-- Data Flows -->
+  <!-- User to P2.1 -->
+  <path d="M 150 325 L 200 205" class="arrow"/>
+  <text x="160" y="260" class="flow-label">Login Request</text>
+  <text x="160" y="272" class="flow-label">(credentials)</text>
+
+  <!-- P2.1 to P2.2 -->
+  <path d="M 305 175 L 380 175" class="arrow"/>
+  <text x="340" y="165" class="flow-label">Validated Input</text>
+
+  <!-- P2.2 to P2.3 (Local Auth) -->
+  <path d="M 430 235 L 440 345" class="arrow"/>
+  <text x="400" y="290" class="flow-label">Local Auth</text>
+
+  <!-- P2.2 to P2.5 (SSO) -->
+  <path d="M 520 165 L 895 175" class="arrow"/>
+  <text x="680" y="160" class="flow-label">SSO/OAuth</text>
+
+  <!-- P2.3 to P2.4 -->
+  <path d="M 505 400 L 595 400" class="arrow"/>
+  <text x="540" y="390" class="flow-label">Credentials</text>
+
+  <!-- P2.4 to D1 -->
+  <path d="M 680 450 L 690 880" class="arrow"/>
+  <text x="670" y="650" class="flow-label">Read Hash</text>
+
+  <!-- P2.4 to P2.6 -->
+  <path d="M 670 450 L 690 545" class="arrow"/>
+  <text x="660" y="500" class="flow-label">Match Result</text>
+
+  <!-- P2.5 to Auth Provider -->
+  <path d="M 1005 180 L 1250 320" class="arrow"/>
+  <text x="1110" y="235" class="flow-label">Auth Request</text>
+
+  <path d="M 1250 340 L 1000 195" class="arrow"/>
+  <text x="1110" y="270" class="flow-label">OAuth Token</text>
+
+  <!-- P2.5 to P2.6 -->
+  <path d="M 950 235 L 950 300 L 750 550" class="arrow"/>
+  <text x="860" y="380" class="flow-label">SSO Success</text>
+
+  <!-- P2.6 to D1 -->
+  <path d="M 710 655 L 720 880" class="arrow"/>
+  <text x="740" y="760" class="flow-label">Check Status</text>
+
+  <!-- P2.6 to P2.7 -->
+  <path d="M 755 605 L 895 605" class="arrow"/>
+  <text x="810" y="595" class="flow-label">Active Account</text>
+
+  <!-- P2.7 to D2 -->
+  <path d="M 975 650 L 975 880" class="arrow"/>
+  <text x="1000" y="760" class="flow-label">Store Session</text>
+
+  <!-- P2.7 to User -->
+  <path d="M 900 580 L 150 345" class="arrow"/>
+  <text x="480" y="460" class="flow-label">Auth Token + Refresh Token</text>
+
+  <!-- User to P2.8 -->
+  <path d="M 150 335 L 200 580" class="arrow"/>
+  <text x="80" y="450" class="flow-label">API Request</text>
+  <text x="80" y="462" class="flow-label">(with token)</text>
+
+  <!-- P2.8 to D2 -->
+  <path d="M 280 645 L 900 880" class="arrow"/>
+  <text x="550" y="760" class="flow-label">Verify Session</text>
+
+  <!-- P2.8 to D4 -->
+  <path d="M 250 655 L 350 880" class="arrow"/>
+  <text x="280" y="760" class="flow-label">Check Blacklist</text>
+
+  <!-- P2.8 to P2.9 -->
+  <path d="M 295 635 L 405 685" class="arrow"/>
+  <text x="330" y="665" class="flow-label">Expired Token</text>
+
+  <!-- P2.9 to P2.7 -->
+  <path d="M 505 720 L 900 630" class="arrow"/>
+  <text x="670" y="680" class="flow-label">Refresh Request</text>
+
+  <!-- User to P2.10 -->
+  <path d="M 150 315 L 895 385" class="arrow"/>
+  <text x="480" y="340" class="flow-label">Logout Request</text>
+
+  <!-- P2.10 to D2 -->
+  <path d="M 975 450 L 965 880" class="arrow"/>
+  <text x="990" y="650" class="flow-label">Delete Session</text>
+
+  <!-- P2.10 to D4 -->
+  <path d="M 900 420 L 420 880" class="arrow"/>
+  <text x="620" y="630" class="flow-label">Add to Blacklist</text>
+
+  <!-- Process Box to indicate scope -->
+  <rect x="200" y="100" width="900" height="700" fill="none" stroke="#95a5a6" stroke-width="2" stroke-dasharray="10,5" rx="10"/>
+  <text x="210" y="125" style="font: bold 14px sans-serif; fill: #7f8c8d;">Authentication Process (2.0)</text>
+
+  <!-- Legend -->
+  <g transform="translate(50, 750)">
+    <text x="0" y="0" class="text" style="font-weight: bold; text-anchor: start;">Legend:</text>
+    <circle cx="12" cy="22" r="10" class="process"/>
+    <text x="30" y="27" class="text" style="text-anchor: start; font-size: 11px;">Process</text>
+
+    <polygon points="0,45 10,55 0,65 -10,55" class="decision"/>
+    <text x="15" y="58" class="text" style="text-anchor: start; font-size: 11px;">Decision Point</text>
+
+    <rect x="2" y="75" width="20" height="14" class="external"/>
+    <text x="30" y="85" class="text" style="text-anchor: start; font-size: 11px;">External Entity</text>
+
+    <path d="M 0 100 L 25 100 L 25 115 L 0 115 Z" class="datastore"/>
+    <text x="30" y="110" class="text" style="text-anchor: start; font-size: 11px;">Data Store</text>
+  </g>
+</svg>
