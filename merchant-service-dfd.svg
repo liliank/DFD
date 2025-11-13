@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1600" viewBox="0 0 1400 1600">
+  <defs>
+    <style>
+      .external-entity { fill: #E3F2FD; stroke: #1976D2; stroke-width: 2; }
+      .process { fill: #FFF3E0; stroke: #F57C00; stroke-width: 2; }
+      .datastore { fill: #F1F8E9; stroke: #558B2F; stroke-width: 2; }
+      .title-text { font-family: Arial, sans-serif; font-size: 24px; font-weight: bold; fill: #333; }
+      .label-text { font-family: Arial, sans-serif; font-size: 13px; fill: #333; font-weight: 600; }
+      .flow-text { font-family: Arial, sans-serif; font-size: 11px; fill: #555; }
+      .dataflow { stroke: #666; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+      .dataflow-dashed { stroke: #999; stroke-width: 1.5; fill: none; stroke-dasharray: 5,3; marker-end: url(#arrowhead-light); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#666" />
+    </marker>
+    <marker id="arrowhead-light" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#999" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="700" y="30" text-anchor="middle" class="title-text">OMRON MerchantService - Data Flow Diagram (Level 0)</text>
+  <text x="700" y="55" text-anchor="middle" style="font-family: Arial, sans-serif; font-size: 14px; fill: #666;">Context Level - System Overview</text>
+
+  <!-- Legend -->
+  <g transform="translate(50, 70)">
+    <rect x="0" y="0" width="100" height="40" class="external-entity" rx="20"/>
+    <text x="50" y="25" text-anchor="middle" class="flow-text">External Entity</text>
+
+    <circle cx="170" cy="20" r="20" class="process"/>
+    <text x="170" y="55" text-anchor="middle" class="flow-text">Process</text>
+
+    <rect x="240" y="0" width="100" height="40" class="datastore"/>
+    <path d="M 240 0 Q 240 -10, 250 -10 L 330 -10 Q 340 -10, 340 0" fill="none" stroke="#558B2F" stroke-width="2"/>
+    <text x="290" y="55" text-anchor="middle" class="flow-text">Data Store</text>
+  </g>
+
+  <!-- Central Process - MerchantService -->
+  <circle cx="700" cy="500" r="120" class="process"/>
+  <text x="700" y="490" text-anchor="middle" class="label-text">OMRON</text>
+  <text x="700" y="508" text-anchor="middle" class="label-text">MerchantService</text>
+  <text x="700" y="526" text-anchor="middle" style="font-size: 11px; fill: #666;">(CodeIgniter PHP)</text>
+
+  <!-- External Entities (Users) -->
+  <!-- Admin Users -->
+  <rect x="80" y="150" width="140" height="60" class="external-entity" rx="30"/>
+  <text x="150" y="185" text-anchor="middle" class="label-text">Admin Users</text>
+
+  <!-- Partner/Merchant Users -->
+  <rect x="80" y="300" width="140" height="60" class="external-entity" rx="30"/>
+  <text x="150" y="328" text-anchor="middle" class="label-text">Partner/Merchant</text>
+  <text x="150" y="345" text-anchor="middle" class="label-text">Users</text>
+
+  <!-- End Users -->
+  <rect x="80" y="450" width="140" height="60" class="external-entity" rx="30"/>
+  <text x="150" y="485" text-anchor="middle" class="label-text">End Users</text>
+
+  <!-- Agent Users -->
+  <rect x="80" y="600" width="140" height="60" class="external-entity" rx="30"/>
+  <text x="150" y="635" text-anchor="middle" class="label-text">Agent Users</text>
+
+  <!-- System/Batch Jobs -->
+  <rect x="80" y="750" width="140" height="60" class="external-entity" rx="30"/>
+  <text x="150" y="778" text-anchor="middle" class="label-text">System Scheduler</text>
+  <text x="150" y="795" text-anchor="middle" class="label-text">(Batch Jobs)</text>
+
+  <!-- External Systems (Right Side) -->
+  <!-- AccountService -->
+  <rect x="1180" y="150" width="140" height="60" class="external-entity" rx="30"/>
+  <text x="1250" y="178" text-anchor="middle" class="label-text">AccountService</text>
+  <text x="1250" y="195" text-anchor="middle" style="font-size: 10px; fill: #666;">(Auth & Roles)</text>
+
+  <!-- MessageService -->
+  <rect x="1180" y="250" width="140" height="60" class="external-entity" rx="30"/>
+  <text x="1250" y="278" text-anchor="middle" class="label-text">MessageService</text>
+  <text x="1250" y="295" text-anchor="middle" style="font-size: 10px; fill: #666;">(i18n Messages)</text>
+
+  <!-- BillService -->
+  <rect x="1180" y="350" width="140" height="60" class="external-entity" rx="30"/>
+  <text x="1250" y="378" text-anchor="middle" class="label-text">BillService</text>
+  <text x="1250" y="395" text-anchor="middle" style="font-size: 10px; fill: #666;">(File Upload/S3)</text>
+
+  <!-- Payment Gateway -->
+  <rect x="1180" y="550" width="140" height="60" class="external-entity" rx="30"/>
+  <text x="1250" y="585" text-anchor="middle" class="label-text">Payment Gateway</text>
+
+  <!-- Email System -->
+  <rect x="1180" y="650" width="140" height="60" class="external-entity" rx="30"/>
+  <text x="1250" y="685" text-anchor="middle" class="label-text">Email System</text>
+
+  <!-- Vending Machine System -->
+  <rect x="1180" y="750" width="140" height="60" class="external-entity" rx="30"/>
+  <text x="1250" y="778" text-anchor="middle" class="label-text">Vending Machine</text>
+  <text x="1250" y="795" text-anchor="middle" class="label-text">System</text>
+
+  <!-- Data Stores -->
+  <!-- Main Database -->
+  <rect x="550" y="900" width="300" height="80" class="datastore"/>
+  <path d="M 550 900 Q 550 880, 570 880 L 830 880 Q 850 880, 850 900" fill="none" stroke="#558B2F" stroke-width="2"/>
+  <text x="700" y="930" text-anchor="middle" class="label-text">omron_merchant Database</text>
+  <text x="700" y="950" text-anchor="middle" style="font-size: 11px; fill: #666;">(MySQL - Products, Merchants, Campaigns,</text>
+  <text x="700" y="965" text-anchor="middle" style="font-size: 11px; fill: #666;">Transactions, Programs, Reports)</text>
+
+  <!-- S3 File Storage -->
+  <rect x="550" y="1020" width="300" height="60" class="datastore"/>
+  <path d="M 550 1020 Q 550 1005, 570 1005 L 830 1005 Q 850 1005, 850 1020" fill="none" stroke="#558B2F" stroke-width="2"/>
+  <text x="700" y="1045" text-anchor="middle" class="label-text">Amazon S3 File Storage</text>
+  <text x="700" y="1062" text-anchor="middle" style="font-size: 11px; fill: #666;">(Product Images, Bills, Receipts)</text>
+
+  <!-- Data Flows from Admin Users -->
+  <path d="M 220 180 L 580 420" class="dataflow"/>
+  <text x="350" y="280" class="flow-text">Manage merchants, reports,</text>
+  <text x="350" y="295" class="flow-text">system config</text>
+
+  <path d="M 590 430 L 220 190" class="dataflow"/>
+  <text x="450" y="300" class="flow-text">Reports, merchant data</text>
+
+  <!-- Data Flows from Partner Users -->
+  <path d="M 220 330 L 580 470" class="dataflow"/>
+  <text x="350" y="385" class="flow-text">Manage products, campaigns,</text>
+  <text x="350" y="400" class="flow-text">transactions, reports</text>
+
+  <path d="M 590 480 L 220 340" class="dataflow"/>
+  <text x="450" y="395" class="flow-text">Transaction data, reports</text>
+
+  <!-- Data Flows from End Users -->
+  <path d="M 220 480 L 580 490" class="dataflow"/>
+  <text x="350" y="475" class="flow-text">View campaigns, create orders,</text>
+  <text x="350" y="490" class="flow-text">view transaction history</text>
+
+  <path d="M 580 510 L 220 490" class="dataflow"/>
+  <text x="420" y="510" class="flow-text">Campaign data, order status</text>
+
+  <!-- Data Flows from Agent Users -->
+  <path d="M 220 630 L 590 550" class="dataflow"/>
+  <text x="350" y="585" class="flow-text">Manage user transactions</text>
+
+  <path d="M 600 560 L 220 640" class="dataflow"/>
+  <text x="450" y="610" class="flow-text">Transaction details</text>
+
+  <!-- Data Flows from System/Batch Jobs -->
+  <path d="M 150 750 L 150 680 L 600 550" class="dataflow-dashed"/>
+  <text x="320" y="650" class="flow-text">Auto-cancel transactions,</text>
+  <text x="320" y="665" class="flow-text">campaign lifecycle, receipts</text>
+
+  <!-- Data Flows to AccountService -->
+  <path d="M 820 440 L 1050 430 Q 1100 425, 1120 350 L 1180 200" class="dataflow"/>
+  <text x="950" y="380" class="flow-text">Auth requests, role</text>
+  <text x="950" y="395" class="flow-text">verification</text>
+
+  <path d="M 1180 190 L 1120 340 Q 1100 415, 1050 420 L 820 430" class="dataflow"/>
+  <text x="1020" y="340" class="flow-text">User tokens, roles</text>
+
+  <!-- Data Flows to MessageService -->
+  <path d="M 820 470 L 1180 280" class="dataflow"/>
+  <text x="950" y="360" class="flow-text">Get messages</text>
+
+  <path d="M 1180 290 L 820 480" class="dataflow"/>
+  <text x="1020" y="380" class="flow-text">Localized messages</text>
+
+  <!-- Data Flows to BillService -->
+  <path d="M 820 490 L 1180 380" class="dataflow"/>
+  <text x="950" y="420" class="flow-text">Upload files</text>
+
+  <path d="M 1180 390 L 820 500" class="dataflow"/>
+  <text x="1020" y="440" class="flow-text">S3 URLs</text>
+
+  <!-- Data Flows to Payment Gateway -->
+  <path d="M 820 520 L 1180 580" class="dataflow"/>
+  <text x="950" y="540" class="flow-text">Payment requests</text>
+
+  <path d="M 1180 590 L 820 530" class="dataflow"/>
+  <text x="1020" y="570" class="flow-text">Payment confirmation</text>
+
+  <!-- Data Flows to Email System -->
+  <path d="M 780 590 L 1030 650 Q 1100 670, 1180 680" class="dataflow-dashed"/>
+  <text x="940" y="635" class="flow-text">Email alerts, notifications</text>
+
+  <!-- Data Flows to Vending Machine System -->
+  <path d="M 760 600 L 1000 710 Q 1080 750, 1180 780" class="dataflow"/>
+  <text x="900" y="685" class="flow-text">Inventory shipments</text>
+
+  <path d="M 1180 790 L 1080 760 Q 1000 720, 760 610" class="dataflow"/>
+  <text x="1000" y="725" class="flow-text">Shipment status</text>
+
+  <!-- Data Flows to Database -->
+  <path d="M 700 620 L 700 900" class="dataflow"/>
+  <text x="720" y="750" class="flow-text">CRUD operations:</text>
+  <text x="720" y="765" class="flow-text">Products, Merchants,</text>
+  <text x="720" y="780" class="flow-text">Campaigns, Transactions,</text>
+  <text x="720" y="795" class="flow-text">Programs, Reports</text>
+
+  <path d="M 680 900 L 680 620" class="dataflow"/>
+  <text x="550" y="750" class="flow-text">Query results,</text>
+  <text x="550" y="765" class="flow-text">stored data</text>
+
+  <!-- Data Flows to S3 Storage -->
+  <path d="M 750 610 L 800 850 L 750 1020" class="dataflow-dashed"/>
+  <text x="820" y="800" class="flow-text">Upload images,</text>
+  <text x="820" y="815" class="flow-text">bills, receipts</text>
+
+  <path d="M 650 1020 L 600 850 L 650 610" class="dataflow-dashed"/>
+  <text x="490" y="800" class="flow-text">File URLs</text>
+
+  <!-- Key Processes Box -->
+  <rect x="200" y="1150" width="1000" height="380" fill="#FAFAFA" stroke="#CCC" stroke-width="1" rx="5"/>
+  <text x="700" y="1180" text-anchor="middle" style="font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; fill: #333;">Key Processes within MerchantService</text>
+
+  <g transform="translate(220, 1200)">
+    <!-- Process boxes in grid -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="220" height="50" fill="#FFF3E0" stroke="#F57C00" stroke-width="1" rx="5"/>
+      <text x="110" y="20" text-anchor="middle" style="font-size: 12px; font-weight: bold;">1. Product Management</text>
+      <text x="110" y="35" text-anchor="middle" style="font-size: 10px; fill: #666;">Create, edit, inventory control</text>
+    </g>
+
+    <g transform="translate(240, 0)">
+      <rect x="0" y="0" width="220" height="50" fill="#FFF3E0" stroke="#F57C00" stroke-width="1" rx="5"/>
+      <text x="110" y="20" text-anchor="middle" style="font-size: 12px; font-weight: bold;">2. Campaign Management</text>
+      <text x="110" y="35" text-anchor="middle" style="font-size: 10px; fill: #666;">Group buy, promotions</text>
+    </g>
+
+    <g transform="translate(480, 0)">
+      <rect x="0" y="0" width="220" height="50" fill="#FFF3E0" stroke="#F57C00" stroke-width="1" rx="5"/>
+      <text x="110" y="20" text-anchor="middle" style="font-size: 12px; font-weight: bold;">3. Transaction Processing</text>
+      <text x="110" y="35" text-anchor="middle" style="font-size: 10px; fill: #666;">Orders, payments, status</text>
+    </g>
+
+    <g transform="translate(720, 0)">
+      <rect x="0" y="0" width="220" height="50" fill="#FFF3E0" stroke="#F57C00" stroke-width="1" rx="5"/>
+      <text x="110" y="20" text-anchor="middle" style="font-size: 12px; font-weight: bold;">4. Merchant Management</text>
+      <text x="110" y="35" text-anchor="middle" style="font-size: 10px; fill: #666;">Profiles, registration</text>
+    </g>
+
+    <g transform="translate(0, 70)">
+      <rect x="0" y="0" width="220" height="50" fill="#FFF3E0" stroke="#F57C00" stroke-width="1" rx="5"/>
+      <text x="110" y="20" text-anchor="middle" style="font-size: 12px; font-weight: bold;">5. Reporting & Settlement</text>
+      <text x="110" y="35" text-anchor="middle" style="font-size: 10px; fill: #666;">Sales reports, CSV exports</text>
+    </g>
+
+    <g transform="translate(240, 70)">
+      <rect x="0" y="0" width="220" height="50" fill="#FFF3E0" stroke="#F57C00" stroke-width="1" rx="5"/>
+      <text x="110" y="20" text-anchor="middle" style="font-size: 12px; font-weight: bold;">6. Service Access Control</text>
+      <text x="110" y="35" text-anchor="middle" style="font-size: 10px; fill: #666;">Program access management</text>
+    </g>
+
+    <g transform="translate(480, 70)">
+      <rect x="0" y="0" width="220" height="50" fill="#FFF3E0" stroke="#F57C00" stroke-width="1" rx="5"/>
+      <text x="110" y="20" text-anchor="middle" style="font-size: 12px; font-weight: bold;">7. Inventory Management</text>
+      <text x="110" y="35" text-anchor="middle" style="font-size: 10px; fill: #666;">Vending machine shipments</text>
+    </g>
+
+    <g transform="translate(720, 70)">
+      <rect x="0" y="0" width="220" height="50" fill="#FFF3E0" stroke="#F57C00" stroke-width="1" rx="5"/>
+      <text x="110" y="20" text-anchor="middle" style="font-size: 12px; font-weight: bold;">8. Batch Job Processing</text>
+      <text x="110" y="35" text-anchor="middle" style="font-size: 10px; fill: #666;">Auto-cancel, lifecycle tasks</text>
+    </g>
+
+    <g transform="translate(0, 140)">
+      <rect x="0" y="0" width="220" height="50" fill="#FFF3E0" stroke="#F57C00" stroke-width="1" rx="5"/>
+      <text x="110" y="20" text-anchor="middle" style="font-size: 12px; font-weight: bold;">9. Program Management</text>
+      <text x="110" y="35" text-anchor="middle" style="font-size: 10px; fill: #666;">Program definitions, clinics</text>
+    </g>
+
+    <g transform="translate(240, 140)">
+      <rect x="0" y="0" width="220" height="50" fill="#FFF3E0" stroke="#F57C00" stroke-width="1" rx="5"/>
+      <text x="110" y="20" text-anchor="middle" style="font-size: 12px; font-weight: bold;">10. Corporate Services</text>
+      <text x="110" y="35" text-anchor="middle" style="font-size: 10px; fill: #666;">Enterprise service management</text>
+    </g>
+
+    <g transform="translate(480, 140)">
+      <rect x="0" y="0" width="220" height="50" fill="#FFF3E0" stroke="#F57C00" stroke-width="1" rx="5"/>
+      <text x="110" y="20" text-anchor="middle" style="font-size: 12px; font-weight: bold;">11. Email Alerts</text>
+      <text x="110" y="35" text-anchor="middle" style="font-size: 10px; fill: #666;">Notification management</text>
+    </g>
+
+    <g transform="translate(720, 140)">
+      <rect x="0" y="0" width="220" height="50" fill="#FFF3E0" stroke="#F57C00" stroke-width="1" rx="5"/>
+      <text x="110" y="20" text-anchor="middle" style="font-size: 12px; font-weight: bold;">12. Audit Logging</text>
+      <text x="110" y="35" text-anchor="middle" style="font-size: 10px; fill: #666;">Operation tracking</text>
+    </g>
+  </g>
+
+  <!-- Architecture Pattern -->
+  <text x="700" y="1560" text-anchor="middle" style="font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333;">Architecture: Repository + Service Pattern (Domain-Driven Design)</text>
+  <text x="700" y="1585" text-anchor="middle" style="font-family: Arial, sans-serif; font-size: 12px; fill: #666;">Technology: CodeIgniter 3.x (PHP), MySQL, Amazon S3, Memcached</text>
+</svg>
